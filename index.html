@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Generátor titulků</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <h1 id="title">Generátor titulků</h1>
+	  <form id="form">
+      <input placeholder="Zadejte klíčová slova" type="text" name="Keywords" id="keywords-input">
+      <button type="submit" id="submit-button">Odeslat</button><br>
+   
+      <div class="checkbox-wrapper">
+        <input type="checkbox" id="img-checkbox">
+        <label id="checkbox-label">Vygenerovat obrázek</label>
+      </div>
+    
+    </form>
+    
+    <div id="text-log"></div>
+    <div id="imagediv"></div>
+
+    <script src="main.js"></script>
+  </body>
+  <footer><span id="footer-credits">Alexandr Norek • <a href="https://gssmikulov.cz/" style="text-decoration:none" id="gss-link">GSS Mikulov</a></span></footer>
+</html>
