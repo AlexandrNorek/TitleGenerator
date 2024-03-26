@@ -1,3 +1,3 @@
-##Ke spuštění:
-vytvořit .env soubor s API klíčem
-spustit přes node index.js
+## Ke spuštění:
+- Vytvořit .env soubor s API klíčem\
+- Spustit přes node index.js
