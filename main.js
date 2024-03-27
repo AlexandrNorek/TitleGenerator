@@ -1,5 +1,5 @@
 const textLog = document.getElementById('text-log');
-const imagediv = document.getElementById('imagediv');
+const imageContainer = document.getElementById('image-container');
 const message = document.getElementById('keywords-input');
 const form = document.querySelector('form');
 
@@ -10,9 +10,9 @@ e.preventDefault();
 const messageText = message.value;
 message.value = '';
 const textInput = document.createElement('div');
-textLog.innerHTML = `<div id="textInput">${messageText}</div>`;
+textLog.innerHTML = `<div id="textInput">${messageText}</div><div class="loader"></div>`;
 textLog.appendChild(textInput);
-textLog.scrollTop = textLog.scrollHeight;
+textLog.scrollTop = textLog.scrollHeight;   
 
 fetch('http://localhost:3000/', {
     method: 'POST',
@@ -35,7 +35,7 @@ fetch('http://localhost:3000/', {
     const imageElement = document.createElement('img');
     imageElement.classList.add('generated-image');
     imageElement.setAttribute('src', response_data.image.data[0].url);
-    imagediv.appendChild(imageElement);
+    imageContainer.appendChild(imageElement);
     }
 })
 })
