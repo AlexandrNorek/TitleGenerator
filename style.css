@@ -176,9 +176,12 @@ footer {
     100% { -webkit-transform: rotate(360deg); }
 }
 
-.image-container {
+.generated-image {
     display: block;
     text-align: center;
     padding: 20px;
     border: #292929;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
