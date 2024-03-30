@@ -11,7 +11,7 @@ const openai = new OpenAI({
 });
 
 const app = express();
-const port = 3000;
+const PORT = 3000;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -28,7 +28,7 @@ app.post("/", async(req, res) => {
     ]
   })
 
-  const imgGeneration = await openai.images.generate({
+  const imageGeneration = await openai.images.generate({
     model: "dall-e-2",
     prompt: chatCompletion.choices[0].message.content,
     n: 1,
@@ -36,11 +36,15 @@ app.post("/", async(req, res) => {
   });
 
   res.json({
-    completion: chatCompletion.choices[0].message, image: imgGeneration
+    completion: chatCompletion.choices[0], image: imageGeneration.data[0]
   })
 
 });
 
-app.listen(port, () => {
-  console.log(`Listening ${port}`);
+app.listen(PORT, (error) => {
+
+  if (error) console.log("Error in server setup");
+  
+  console.log(`Server listening on PORT: ${PORT}`);
+  
 });
