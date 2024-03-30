@@ -1,41 +1,46 @@
-const textLog = document.getElementById('text-log');
-const imageContainer = document.getElementById('image-container');
-const message = document.getElementById('keywords-input');
-const form = document.querySelector('form');
+const textContainer = document.getElementById("textContainer");
+const imageContainer = document.getElementById("imageContainer");
+const imageCheckbox = document.getElementById("imageCheckbox");
+const message = document.getElementById("keywordsInput");
+const form = document.querySelector("form");
 
-const imgCheckbox = document.getElementById('img-checkbox');
+form.addEventListener("submit", (e) => { 
 
-form.addEventListener('submit', (e) => { 
-e.preventDefault();
-const messageText = message.value;
-message.value = '';
-const textInput = document.createElement('div');
-textLog.innerHTML = `<div id="textInput">${messageText}</div><div class="loader"></div>`;
-textLog.appendChild(textInput);
-textLog.scrollTop = textLog.scrollHeight;   
+    e.preventDefault();
 
-fetch('http://localhost:3000/', {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-    message: messageText
+    const messageText = message.value;
+    message.value = '';
+    const textInput = document.createElement("div");
+    textContainer.innerHTML = `<div id="textInput">${messageText}</div><div class="loader"></div>`;
+    textContainer.appendChild(textInput);
+    textContainer.scrollTop = textContainer.scrollHeight;
+
+    imageContainer.innerHTML = "";
+
+    fetch("http://localhost:3000/", {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+        message: messageText
+        })
     })
-})
-.then(res => res.json())
-.then(response_data => {
-    const textResponse = document.createElement('div');
-    textLog.innerHTML = `<div id="textResponse">${response_data.completion.content}</div>`;
-    textLog.appendChild(textResponse);
-    textLog.scrollTop = textLog.scrollHeight;
+    .then(res => res.json())
+    .then(response_data => {
 
-    if (imgCheckbox.checked == true)
-    {
-    const imageElement = document.createElement('img');
-    imageElement.classList.add('generated-image');
-    imageElement.setAttribute('src', response_data.image.data[0].url);
-    imageContainer.appendChild(imageElement);
-    }
-})
+        const textResponse = document.createElement("div");
+        textContainer.innerHTML = `<div id="textResponse" class="textContainer">${response_data.completion.message.content}</div>`;
+        textContainer.appendChild(textResponse);
+        textContainer.scrollTop = textContainer.scrollHeight;
+
+        if (imageCheckbox.checked)
+        {
+            const imageElement = document.createElement("img");
+            imageElement.classList.add("generated-image");
+            imageElement.setAttribute("src", response_data.image.url);
+            imageContainer.appendChild(imageElement);
+        }
+
+    })
 })
