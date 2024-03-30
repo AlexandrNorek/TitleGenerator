@@ -12,22 +12,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1 id="title">Generátor titulků</h1>
-	  <form id="form">
-      <input placeholder="Zadejte klíčová slova" type="text" name="Keywords" id="keywords-input" class="robotoFont">
-      <button type="submit" id="submit-button" class="robotoFont">Odeslat</button><br>
+    <span id="title">Generátor titulků</span>
+	  <form class="form-input">
+      <input placeholder="Zadejte klíčová slova" type="text" name="Keywords" id="keywordsInput">
+      <button type="submit" id="submitButton">Odeslat</button><br>
    
       <div class="checkbox-wrapper">
-        <input type="checkbox" id="img-checkbox">
-        <label id="checkbox-label">Vygenerovat obrázek</label>
+        <input type="checkbox" id="imageCheckbox">
+        <label id="checkboxLabel">Vygenerovat obrázek</label>
       </div>
     
     </form>
-    <div id="text-log">
-    </div>
-    <div id="image-container"></div>
+    <div id="textContainer"></div>
+    <div id="imageContainer"></div>
 
     <script src="main.js"></script>
   </body>
-  <footer><span id="footer-credits">Alexandr Norek • <a href="https://gssmikulov.cz/" style="text-decoration:none" id="gss-link">GSS Mikulov</a></span></footer>
+  <footer>Alexandr Norek • <a href="https://gssmikulov.cz/" style="text-decoration:none" id="gssLink">GSS Mikulov</a></footer>
 </html>
